@@ -14,7 +14,22 @@ public class MamutaIntake extends CommandBase {
   
     @Override
     public void initialize() {
-        mamutaIntake.setVictorPower(1);
     } 
+
+    @Override
+    public void execute() {
+      mamutaIntake.setVictorPower(1);
+    }
+  
+    @Override
+    public void end(boolean interrupted) {
+    }
+  
+    @Override
+    public boolean isFinished() {
+      return false;
+    }
+
+    
     
 }

@@ -17,6 +17,10 @@ public class MoveIntake extends CommandBase {
 
     @Override
     public void initialize() {
+    }
+    
+    @Override
+    public void execute() {
         if(forWardOrRevers){
             moveIntake.setTalonsPower(1);
         }
@@ -24,5 +28,14 @@ public class MoveIntake extends CommandBase {
         else if(!forWardOrRevers){
             moveIntake.setTalonsPower(-1);
         }
-    }   
+    }
+  
+    @Override
+    public void end(boolean interrupted) {
+    }
+  
+    @Override
+    public boolean isFinished() {
+      return false;
+    }
 }

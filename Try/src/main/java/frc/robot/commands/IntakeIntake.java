@@ -14,6 +14,19 @@ public class IntakeIntake extends CommandBase {
   
     @Override
     public void initialize() {
-        intake.setVictorPower(1);
+    }
+
+    @Override
+    public void execute() {
+      intake.setVictorPower(1);
+    }
+  
+    @Override
+    public void end(boolean interrupted) {
+    }
+  
+    @Override
+    public boolean isFinished() {
+      return false;
     }
 }

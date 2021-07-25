@@ -16,13 +16,26 @@ public class OpenCloseIntake extends CommandBase{
     }
   
     @Override
-    public void initialize() {
+    public void initialize() {   
+    }
+
+    @Override
+    public void execute() {
         if(openOrClose){
             intake.setSolenoidMode(true);
         }
         else if(!openOrClose){
             intake.setSolenoidMode(false);
-        }    
+        } 
+    }
+  
+    @Override
+    public void end(boolean interrupted) {
+    }
+  
+    @Override
+    public boolean isFinished() {
+      return false;
     }
 
 

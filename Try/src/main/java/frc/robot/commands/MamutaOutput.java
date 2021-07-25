@@ -14,6 +14,19 @@ public class MamutaOutput extends CommandBase {
   
     @Override
     public void initialize() {
-        mamutaOutput.setVictorPower(-1);
+    }
+
+    @Override
+    public void execute() {
+      mamutaOutput.setVictorPower(-1);
+    }
+  
+    @Override
+    public void end(boolean interrupted) {
+    }
+  
+    @Override
+    public boolean isFinished() {
+      return false;
     }
 }
