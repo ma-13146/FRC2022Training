@@ -4,6 +4,10 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Mamuta extends SubsystemBase{
@@ -13,10 +17,16 @@ public class Mamuta extends SubsystemBase{
     WPI_TalonSRX talon;
 
     WPI_VictorSPX victor;
+    
+    Encoder encoder;
+    DigitalInput limitSwitch;
 
     public Mamuta() {
         talon= new WPI_TalonSRX(1);
         victor= new WPI_VictorSPX(2);
+        encoder= new Encoder(3,4, false, EncodingType.k4X);
+        limitSwitch= new DigitalInput(1);
+        encoder.setDistancePerPulse(1);
       }
     
       public void setTalonPower(double power){
@@ -32,8 +42,15 @@ public class Mamuta extends SubsystemBase{
     
       public void setReverse(){
       }
+
+      public void getReset(){
+        encoder.reset();
+      }
+
+      public boolean get(){
+        return limitSwitch.get();
+      }
     
-      
       public static Mamuta getInstance() {
         if (instace== null){
           instace= new Mamuta();
@@ -43,6 +60,11 @@ public class Mamuta extends SubsystemBase{
     
       @Override
       public void periodic() {
+        if(limitSwitch.get()){
+          encoder.reset();
+        }
+        SmartDashboard.putNumber("encoderDistance", encoder.getDistance());
+        SmartDashboard.putBoolean("limitPress", limitSwitch.get());
       }
 
     

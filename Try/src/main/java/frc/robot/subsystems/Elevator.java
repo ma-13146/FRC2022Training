@@ -3,6 +3,9 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Elevator extends SubsystemBase{
@@ -11,8 +14,14 @@ public class Elevator extends SubsystemBase{
 
     static Elevator instace;
 
+    Encoder encoder;
+    DigitalInput limitSwitch;
+
     public Elevator(){
         talon= new WPI_TalonSRX(1);
+        encoder= new Encoder(2,3, false, EncodingType.k4X);
+        limitSwitch= new DigitalInput(1);
+        encoder.setDistancePerPulse(1);
     }
 
     public void set(double power){
