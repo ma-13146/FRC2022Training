@@ -3,7 +3,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.commands.MoveMamuta;
+import frc.robot.commands.MamutaMamuta;
 import frc.robot.commands.ElevatorElevator;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Elevator;
@@ -15,7 +15,7 @@ public class Robot extends TimedRobot {
 
   private RobotContainer m_robotContainer;
 
-  private MoveMamuta axle;
+  private MamutaMamuta mamuta;
   private TankDrive joystick;
   private ElevatorElevator elevator;
 
@@ -24,12 +24,12 @@ public class Robot extends TimedRobot {
 
     m_robotContainer = new RobotContainer();
 
-    axle = new MoveMamuta(Mamuta.getInstance());
+    mamuta = new MamutaMamuta(Mamuta.getInstance());
     joystick= new TankDrive(Drive.getInstance());
     elevator= new ElevatorElevator(Elevator.getInstace());
 
     CommandScheduler.getInstance().setDefaultCommand(Drive.getInstance(),joystick);
-    CommandScheduler.getInstance().setDefaultCommand(Mamuta.getInstance(), axle);
+    CommandScheduler.getInstance().setDefaultCommand(Mamuta.getInstance(), mamuta);
     CommandScheduler.getInstance().setDefaultCommand(Elevator.getInstace(), elevator);
   }
 

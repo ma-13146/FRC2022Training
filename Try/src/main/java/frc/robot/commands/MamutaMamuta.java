@@ -4,13 +4,14 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Mamuta;
 
-public class MoveMamuta extends CommandBase {
+public class MamutaMamuta extends CommandBase {
 
     
-  Mamuta moveMamuta;
+  Mamuta mamuta;
   
-  public MoveMamuta(Mamuta M) {
-    addRequirements(M);
+  public MamutaMamuta(Mamuta mamuta) {
+    this.mamuta = mamuta;
+    addRequirements(mamuta);
   }
 
 
@@ -20,7 +21,8 @@ public class MoveMamuta extends CommandBase {
 
   @Override
   public void execute() {
-    moveMamuta.setTalonPower(RobotContainer.firstXboxJoystick.getY());   
+    mamuta.setTalonPower(RobotContainer.firstXboxJoystick.getY());   
+    mamuta.setVictorPower(1);
   }
 
   @Override
