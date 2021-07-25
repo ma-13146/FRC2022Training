@@ -3,12 +3,12 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Climb;
 
-public class ClimbC extends CommandBase {
+public class ClimbClimb extends CommandBase {
 
     Climb climb;
     boolean openOrClose;
 
-    public ClimbC(boolean openOrClose){
+    public ClimbClimb(boolean openOrClose){
         climb.getInstace();
         addRequirements(climb);
         this.openOrClose= openOrClose;

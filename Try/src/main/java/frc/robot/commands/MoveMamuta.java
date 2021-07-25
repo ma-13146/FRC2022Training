@@ -4,12 +4,12 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Mamuta;
 
-public class Axle extends CommandBase {
+public class MoveMamuta extends CommandBase {
 
     
-  Mamuta axle;
+  Mamuta moveMamuta;
   
-  public Axle(Mamuta M) {
+  public MoveMamuta(Mamuta M) {
     addRequirements(M);
   }
 
@@ -20,12 +20,7 @@ public class Axle extends CommandBase {
 
   @Override
   public void execute() {
-      if(RobotContainer.firstXboxJoystick.getY()==0){
-        //איך להפעיל פה את הקומנד של האינטייק?
-      }
-      else{
-        axle.setTalonPower(RobotContainer.firstXboxJoystick.getY());
-    }    
+    moveMamuta.setTalonPower(RobotContainer.firstXboxJoystick.getY());   
   }
 
   @Override

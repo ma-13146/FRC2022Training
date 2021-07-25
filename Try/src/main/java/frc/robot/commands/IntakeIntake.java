@@ -1,14 +1,14 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.NewIntake;
+import frc.robot.subsystems.Intake;
 
-public class SecondIntake extends CommandBase {
+public class IntakeIntake extends CommandBase {
 
-    NewIntake intake;
+    Intake intake;
   
-    public SecondIntake() {
-      intake = NewIntake.getInstance();
+    public IntakeIntake() {
+      intake = Intake.getInstance();
       addRequirements(intake);
     }
   

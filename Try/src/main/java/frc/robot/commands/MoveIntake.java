@@ -1,32 +1,28 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.NewIntake;
+import frc.robot.subsystems.Intake;
 
 public class MoveIntake extends CommandBase {
 
-    NewIntake intake;
+    Intake moveIntake;
 
     boolean forWardOrRevers;
 
     public MoveIntake(boolean forWardOrRevers){
-        intake = NewIntake.getInstance();
-        addRequirements(intake);
+        moveIntake = Intake.getInstance();
+        addRequirements(moveIntake);
         this.forWardOrRevers=forWardOrRevers;
     }
 
     @Override
     public void initialize() {
         if(forWardOrRevers){
-            intake.setTalonsPower(1);
+            moveIntake.setTalonsPower(1);
         }
 
         else if(!forWardOrRevers){
-            intake.setTalonsPower(-1);
+            moveIntake.setTalonsPower(-1);
         }
-    }
-
-
-
-    
+    }   
 }

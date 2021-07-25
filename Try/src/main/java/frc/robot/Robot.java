@@ -3,30 +3,30 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.commands.Axle;
-import frc.robot.commands.ElevatorC;
+import frc.robot.commands.MoveMamuta;
+import frc.robot.commands.ElevatorElevator;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Mamuta;
-import frc.robot.commands.Joystick;
+import frc.robot.commands.TankDrive;
 
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
 
   private RobotContainer m_robotContainer;
 
-  private Axle axle;
-  private Joystick joystick;
-  private ElevatorC elevator;
+  private MoveMamuta axle;
+  private TankDrive joystick;
+  private ElevatorElevator elevator;
 
   @Override
   public void robotInit() {
 
     m_robotContainer = new RobotContainer();
 
-    axle = new Axle(Mamuta.getInstance());
-    joystick= new Joystick(Drive.getInstance());
-    elevator= new ElevatorC(Elevator.getInstace());
+    axle = new MoveMamuta(Mamuta.getInstance());
+    joystick= new TankDrive(Drive.getInstance());
+    elevator= new ElevatorElevator(Elevator.getInstace());
 
     CommandScheduler.getInstance().setDefaultCommand(Drive.getInstance(),joystick);
     CommandScheduler.getInstance().setDefaultCommand(Mamuta.getInstance(), axle);

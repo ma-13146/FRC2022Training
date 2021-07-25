@@ -1,16 +1,16 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.NewIntake;
+import frc.robot.subsystems.Intake;
 
-public class OpenClose extends CommandBase{
+public class OpenCloseIntake extends CommandBase{
 
-    NewIntake intake;
+    Intake intake;
 
     boolean openOrClose;
   
-    public OpenClose(boolean openOrClose) {
-      intake = NewIntake.getInstance();
+    public OpenCloseIntake(boolean openOrClose) {
+      intake = Intake.getInstance();
       addRequirements(intake);
       this.openOrClose= openOrClose;
     }

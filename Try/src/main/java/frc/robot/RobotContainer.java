@@ -4,14 +4,12 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.commands.ClimbC;
-import frc.robot.commands.Intake;
+import frc.robot.commands.ClimbClimb;
+import frc.robot.commands.MamutaIntake;
 import frc.robot.commands.MoveIntake;
-import frc.robot.commands.OpenClose;
-import frc.robot.commands.Output;
-import frc.robot.commands.SecondIntake;
-import frc.robot.commands.Solenoid;
-import frc.robot.commands.Victor;
+import frc.robot.commands.OpenCloseIntake;
+import frc.robot.commands.MamutaOutput;
+import frc.robot.commands.IntakeIntake;
 
 public class RobotContainer {
 
@@ -32,15 +30,10 @@ public class RobotContainer {
   private JoystickButton hButton= new JoystickButton(joystick1,7);
   private JoystickButton iButton= new JoystickButton(joystick1,8);
 
-  private JoystickButton jButton= new JoystickButton(joystick1,9);
-  private JoystickButton kButton= new JoystickButton(joystick1,10);
 
-  private JoystickButton lButton= new JoystickButton(joystick1,11);
-  private JoystickButton mButton= new JoystickButton(joystick1,12);
+  public static XboxController firstXboxJoystick= new XboxController(9);
 
-  public static XboxController firstXboxJoystick= new XboxController(13);
-
-  public static XboxController secondXboxJoystick= new XboxController(14);
+  public static XboxController secondXboxJoystick= new XboxController(10);
 
   public RobotContainer() {
     configureButtonBindings();
@@ -48,26 +41,21 @@ public class RobotContainer {
 
   private void configureButtonBindings() {
 
-    aButton.whenHeld(new Solenoid(true));
-    bButton.whenHeld(new Solenoid(false));
+    aButton.whenHeld(new ClimbClimb(true));
+    bButton.whenHeld(new ClimbClimb(false));
 
-    cButton.whenHeld(new Victor(true));
-    dButton.whenHeld(new Victor(false));
+    cButton.whenHeld(new MoveIntake(true));
+    dButton.whenHeld(new MoveIntake(false));
 
-    eButton.whenHeld(new Intake());
+    eButton.whenHeld(new MamutaIntake());
 
-    fButton.whenHeld(new Output());
+    fButton.whenHeld(new MamutaOutput());
 
-    gButton.whenHeld(new SecondIntake());
+    gButton.whenHeld(new IntakeIntake());
 
-    hButton.whenHeld(new OpenClose(true));
-    iButton.whenHeld(new OpenClose(false));
+    hButton.whenHeld(new OpenCloseIntake(true));
+    iButton.whenHeld(new OpenCloseIntake(false));
 
-    jButton.whenHeld(new MoveIntake(true));
-    kButton.whenHeld(new MoveIntake(false));
-
-    lButton.whenHeld(new ClimbC(true));
-    mButton.whenHeld(new ClimbC(false));
 
   }
 
