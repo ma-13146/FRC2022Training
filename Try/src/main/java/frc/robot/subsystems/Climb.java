@@ -11,7 +11,7 @@ public class Climb extends SubsystemBase {
     DoubleSolenoid doubleSolenoid;
 
     public Climb(){
-        doubleSolenoid= new DoubleSolenoid(1,2);
+        doubleSolenoid= new DoubleSolenoid(2,3);
     }
 
     public void setForward(){

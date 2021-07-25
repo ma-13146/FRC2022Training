@@ -29,12 +29,12 @@ public class Intake extends SubsystemBase{
   
   
     public Intake() {
-        firstTalon= new WPI_TalonSRX(1);
-        secondTalon= new WPI_TalonSRX(2);
-        victor= new WPI_VictorSPX(3);
-        solenoid= new Solenoid(4);
-        encoder= new Encoder(5,6, false, EncodingType.k4X);
-        limitSwitch= new DigitalInput(1);
+        firstTalon= new WPI_TalonSRX(3);
+        secondTalon= new WPI_TalonSRX(4);
+        victor= new WPI_VictorSPX(5);
+        solenoid= new Solenoid(1);
+        encoder= new Encoder(3,4, false, EncodingType.k4X);
+        limitSwitch= new DigitalInput(2);
         encoder.setDistancePerPulse(1);
 
         secondTalon.follow(firstTalon);

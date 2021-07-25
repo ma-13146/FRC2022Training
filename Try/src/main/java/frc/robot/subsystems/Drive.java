@@ -16,10 +16,10 @@ public class Drive extends SubsystemBase {
 
   public Drive() {
         
-    sparkMaxFrontRight=new CANSparkMax(1, CANSparkMax.MotorType.kBrushless);
-    sparkMaxFrontLeft=new CANSparkMax(2, CANSparkMax.MotorType.kBrushless);
-    sparkMaxBackRight=new CANSparkMax(3, CANSparkMax.MotorType.kBrushless);
-    sparkMaxBackLeft= new CANSparkMax(4, CANSparkMax.MotorType.kBrushless);
+    sparkMaxFrontRight=new CANSparkMax(7, CANSparkMax.MotorType.kBrushless);
+    sparkMaxFrontLeft=new CANSparkMax(8, CANSparkMax.MotorType.kBrushless);
+    sparkMaxBackRight=new CANSparkMax(9, CANSparkMax.MotorType.kBrushless);
+    sparkMaxBackLeft= new CANSparkMax(10, CANSparkMax.MotorType.kBrushless);
 
     sparkMaxBackRight.follow(sparkMaxFrontRight);
     sparkMaxBackLeft.follow(sparkMaxFrontLeft);

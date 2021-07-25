@@ -18,9 +18,9 @@ public class Elevator extends SubsystemBase{
     DigitalInput limitSwitch;
 
     public Elevator(){
-        talon= new WPI_TalonSRX(1);
-        encoder= new Encoder(2,3, false, EncodingType.k4X);
-        limitSwitch= new DigitalInput(1);
+        talon= new WPI_TalonSRX(6);
+        encoder= new Encoder(5,6, false, EncodingType.k4X);
+        limitSwitch= new DigitalInput(3);
         encoder.setDistancePerPulse(1);
     }
 

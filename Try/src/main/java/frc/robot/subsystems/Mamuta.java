@@ -24,7 +24,7 @@ public class Mamuta extends SubsystemBase{
     public Mamuta() {
         talon= new WPI_TalonSRX(1);
         victor= new WPI_VictorSPX(2);
-        encoder= new Encoder(3,4, false, EncodingType.k4X);
+        encoder= new Encoder(1,2, false, EncodingType.k4X);
         limitSwitch= new DigitalInput(1);
         encoder.setDistancePerPulse(1);
       }
