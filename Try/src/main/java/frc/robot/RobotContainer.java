@@ -30,10 +30,9 @@ public class RobotContainer {
   private JoystickButton hButton= new JoystickButton(joystick1,7);
   private JoystickButton iButton= new JoystickButton(joystick1,8);
 
-
   public static XboxController firstXboxJoystick= new XboxController(9);
-
   public static XboxController secondXboxJoystick= new XboxController(10);
+
 
   public RobotContainer() {
     configureButtonBindings();
@@ -55,7 +54,6 @@ public class RobotContainer {
 
     hButton.whenHeld(new OpenCloseIntake(true));
     iButton.whenHeld(new OpenCloseIntake(false));
-
 
   }
 

@@ -25,8 +25,8 @@ public class Climb extends SubsystemBase {
     public Climb getInstace(){
         if (instace== null){
             instace= new Climb();
-        }
-            return instace;
+          }
+        return instace;
     }
 
     @Override
