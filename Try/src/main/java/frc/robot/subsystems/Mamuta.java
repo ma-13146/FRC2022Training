@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Mamuta extends SubsystemBase{
 
-    private static Mamuta instace= new Mamuta();
+    private static Mamuta instace= null;
 
     WPI_TalonSRX talon;
 
