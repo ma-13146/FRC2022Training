@@ -3,12 +3,12 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.commands.MamutaMamuta;
-import frc.robot.commands.ElevatorElevator;
+import frc.robot.commands.Mamuta.MamutaMamuta;
+import frc.robot.commands.Elevator.ElevatorElevator;
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Mamuta;
-import frc.robot.commands.TankDrive;
+import frc.robot.commands.Drive.TankDrive;
 
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
@@ -24,7 +24,7 @@ public class Robot extends TimedRobot {
 
     m_robotContainer = new RobotContainer();
 
-    mamuta = new MamutaMamuta(Mamuta.getInstance());
+    mamuta = new MamutaMamuta(Mamuta.getInstance(), 5, 1);// TO CHANGE
     joystick= new TankDrive(Drive.getInstance());
     elevator= new ElevatorElevator(Elevator.getInstace());
 
