@@ -27,8 +27,10 @@ public class MamutaMamuta extends CommandBase {
   public void execute() {
     double speed=mamuta.calculate(setPoint);
     mamuta.setTalonPower(speed);
-    // mamuta.setTalonPower(RobotContainer.firstXboxJoystick.getY());   
-    mamuta.setVictorPower(1);
+    if (mamuta.get()){
+      mamuta.setVictorPower(1);
+      mamuta.setSetPoint(0);
+    }   
   }
 
   @Override

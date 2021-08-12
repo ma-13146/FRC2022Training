@@ -24,9 +24,9 @@ public class Robot extends TimedRobot {
 
     m_robotContainer = new RobotContainer();
 
-    mamuta = new MamutaMamuta(Mamuta.getInstance(), 5, 1);// TO CHANGE
+    mamuta = new MamutaMamuta(Mamuta.getInstance(), RobotContainer.firstXboxJoystick.getY(), 1);
     joystick= new TankDrive(Drive.getInstance());
-    elevator= new ElevatorElevator(Elevator.getInstace());
+    elevator= new ElevatorElevator(Elevator.getInstace(),RobotContainer.secondXboxJoystick.getY(),1);
 
     CommandScheduler.getInstance().setDefaultCommand(Drive.getInstance(),joystick);
     CommandScheduler.getInstance().setDefaultCommand(Mamuta.getInstance(), mamuta);

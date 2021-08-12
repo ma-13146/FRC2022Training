@@ -9,6 +9,7 @@ import frc.robot.commands.Mamuta.MamutaIntake;
 import frc.robot.commands.Intake.MoveIntake;
 import frc.robot.commands.Intake.OpenCloseIntake;
 import frc.robot.commands.Mamuta.MamutaOutput;
+import frc.robot.commands.Mamuta.PIDMamuta;
 import frc.robot.commands.Intake.IntakeIntake;
 
 public class RobotContainer {
@@ -30,8 +31,10 @@ public class RobotContainer {
   private JoystickButton hButton= new JoystickButton(joystick1,8);
   private JoystickButton iButton= new JoystickButton(joystick1,9);
 
-  public static XboxController firstXboxJoystick= new XboxController(10);
-  public static XboxController secondXboxJoystick= new XboxController(11);
+  private JoystickButton jButton= new JoystickButton(joystick1,10);
+
+  public static XboxController firstXboxJoystick= new XboxController(11);
+  public static XboxController secondXboxJoystick= new XboxController(12);
 
 
   public RobotContainer() {
@@ -43,8 +46,8 @@ public class RobotContainer {
     aButton.whenHeld(new ClimbClimb(true));
     bButton.whenHeld(new ClimbClimb(false));
 
-    cButton.whenHeld(new MoveIntake(true));
-    dButton.whenHeld(new MoveIntake(false));
+    cButton.whenHeld(new MoveIntake(1,1));
+    dButton.whenHeld(new MoveIntake(-1,1));
 
     eButton.whenHeld(new MamutaIntake());
 
@@ -54,6 +57,8 @@ public class RobotContainer {
 
     hButton.whenHeld(new OpenCloseIntake(true));
     iButton.whenHeld(new OpenCloseIntake(false));
+
+    jButton.whenPressed(new PIDMamuta(1, 1));
 
   }
 

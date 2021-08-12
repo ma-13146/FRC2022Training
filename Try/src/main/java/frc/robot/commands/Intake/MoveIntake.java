@@ -9,10 +9,12 @@ public class MoveIntake extends CommandBase {
 
     boolean forWardOrRevers;
 
-    public MoveIntake(boolean forWardOrRevers){
+    double setPoint;
+
+    public MoveIntake(double setPoint, double waitTime){
         moveIntake = Intake.getInstance();
         addRequirements(moveIntake);
-        this.forWardOrRevers=forWardOrRevers;
+        this.setPoint=setPoint;
     }
 
     @Override
@@ -21,13 +23,8 @@ public class MoveIntake extends CommandBase {
     
     @Override
     public void execute() {
-        if(forWardOrRevers){
-            moveIntake.setTalonsPower(1);
-        }
-
-        else if(!forWardOrRevers){
-            moveIntake.setTalonsPower(-1);
-        }
+        double speed= moveIntake.calculate(setPoint);
+        moveIntake.setTalonsPower(speed);
     }
   
     @Override

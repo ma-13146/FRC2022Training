@@ -1,16 +1,20 @@
 package frc.robot.commands.Elevator;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.RobotContainer;
 import frc.robot.subsystems.Elevator;
 
 public class ElevatorElevator extends CommandBase {
 
     Elevator elevator;
 
-    public ElevatorElevator(Elevator elevator){
+    double setPoint;
+    double waitTime;
+
+    public ElevatorElevator(Elevator elevator, double setPoint, double waitTime){
         this.elevator=elevator;
         addRequirements(elevator);
+        this.setPoint= setPoint;
+        this.waitTime=waitTime;
     }
 
     @Override
@@ -19,7 +23,12 @@ public class ElevatorElevator extends CommandBase {
   
     @Override
     public void execute() {
-      elevator.set(RobotContainer.secondXboxJoystick.getY());
+      double speed= elevator.calculate(setPoint);
+      elevator.set(speed);
+
+      if (elevator.atSetPoint()){
+        elevator.setSetPoint(0);
+      }
     }
   
     @Override
@@ -29,9 +38,5 @@ public class ElevatorElevator extends CommandBase {
     @Override
     public boolean isFinished() {
       return false;
-    }
-
-
-
-    
+    }   
 }
