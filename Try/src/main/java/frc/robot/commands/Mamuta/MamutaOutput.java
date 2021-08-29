@@ -1,15 +1,15 @@
-package frc.robot.commands;
+package frc.robot.commands.Mamuta;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Mamuta;
 
-public class IntakeIntake extends CommandBase {
+public class MamutaOutput extends CommandBase {
 
-    Intake intake;
+    Mamuta mamutaOutput;
   
-    public IntakeIntake() {
-      intake = Intake.getInstance();
-      addRequirements(intake);
+    public MamutaOutput() {
+      mamutaOutput = Mamuta.getInstance();
+      addRequirements(mamutaOutput);
     }
   
     @Override
@@ -18,7 +18,7 @@ public class IntakeIntake extends CommandBase {
 
     @Override
     public void execute() {
-      intake.setVictorPower(1);
+      mamutaOutput.setVictorPower(-1);
     }
   
     @Override

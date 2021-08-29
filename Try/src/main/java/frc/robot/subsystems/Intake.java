@@ -26,6 +26,14 @@ public class Intake extends SubsystemBase{
     DigitalInput limitSwitch;
 
     PIDController pid;
+
+
+    double kP=1;
+    double kI=1;
+    double kD=1;
+
+    double low=-1;
+    double high=1;
   
   
     public Intake() {
@@ -33,13 +41,27 @@ public class Intake extends SubsystemBase{
         secondTalon= new WPI_TalonSRX(4);
         victor= new WPI_VictorSPX(5);
         solenoid= new Solenoid(1);
-        encoder= new Encoder(3,4, false, EncodingType.k4X);
-        limitSwitch= new DigitalInput(2);
+        encoder= new Encoder(4,5, false, EncodingType.k4X);
+        limitSwitch= new DigitalInput(6);
         encoder.setDistancePerPulse(1);
-
+        pid= new PIDController(kP, kI, kD);
+        pid.setTolerance(1);
         secondTalon.follow(firstTalon);
 
 
+    }
+
+    public void setSetPoint(double setPoint){
+      pid.setSetpoint(setPoint);
+    }
+
+    public boolean atSetPoint(){
+      return pid.atSetpoint();
+    }
+
+
+    public double calculate(double setPoint){
+      return pid.calculate(encoder.getDistance(), setPoint);
     }
   
     public void setVictorPower(double power){

@@ -1,16 +1,20 @@
-package frc.robot.commands;
+package frc.robot.commands.Mamuta;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.RobotContainer;
+// import frc.robot.RobotContainer;
 import frc.robot.subsystems.Mamuta;
 
 public class MamutaMamuta extends CommandBase {
 
     
   Mamuta mamuta;
+  double setPoint;
+  double waitTime;
   
-  public MamutaMamuta(Mamuta mamuta) {
+  public MamutaMamuta(Mamuta mamuta, double setPoint, double waitTime) {
+    this.setPoint= setPoint;
     this.mamuta = mamuta;
+    this.waitTime= waitTime;
     addRequirements(mamuta);
   }
 
@@ -21,8 +25,12 @@ public class MamutaMamuta extends CommandBase {
 
   @Override
   public void execute() {
-    mamuta.setTalonPower(RobotContainer.firstXboxJoystick.getY());   
-    mamuta.setVictorPower(1);
+    double speed=mamuta.calculate(setPoint);
+    mamuta.setTalonPower(speed);
+    if (mamuta.get()){
+      mamuta.setVictorPower(1);
+      mamuta.setSetPoint(0);
+    }   
   }
 
   @Override

@@ -1,32 +1,24 @@
-package frc.robot.commands;
+package frc.robot.commands.Intake;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Intake;
 
-public class OpenCloseIntake extends CommandBase{
+public class IntakeIntake extends CommandBase {
 
     Intake intake;
-
-    boolean openOrClose;
   
-    public OpenCloseIntake(boolean openOrClose) {
+    public IntakeIntake() {
       intake = Intake.getInstance();
       addRequirements(intake);
-      this.openOrClose= openOrClose;
     }
   
     @Override
-    public void initialize() {   
+    public void initialize() {
     }
 
     @Override
     public void execute() {
-        if(openOrClose){
-            intake.setSolenoidMode(true);
-        }
-        else if(!openOrClose){
-            intake.setSolenoidMode(false);
-        } 
+      intake.setVictorPower(1);
     }
   
     @Override
@@ -37,7 +29,4 @@ public class OpenCloseIntake extends CommandBase{
     public boolean isFinished() {
       return false;
     }
-
-
-    
 }
