@@ -22,7 +22,7 @@ public class Climb extends SubsystemBase {
         doubleSolenoid.set(Value.kReverse);
     }
 
-    public Climb getInstace(){
+    public static Climb getInstace(){
         if (instace== null){
             instace= new Climb();
           }

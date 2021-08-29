@@ -9,7 +9,7 @@ public class ClimbClimb extends CommandBase {
     boolean openOrClose;
 
     public ClimbClimb(boolean openOrClose){
-        climb= climb.getInstace();
+        climb= Climb.getInstace();
         addRequirements(climb);
         this.openOrClose= openOrClose;
     }
