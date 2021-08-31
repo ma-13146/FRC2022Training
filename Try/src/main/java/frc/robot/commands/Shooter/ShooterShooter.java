@@ -23,6 +23,10 @@ public class ShooterShooter extends CommandBase {
     public void execute() {
         double speed= shooter.calculate(setPoint);
         shooter.setSparkMaxPower(speed);
+
+        if (shooter.getSparkMaxSpeed()>= 300){
+            shooter.setTalonPower(0.5);
+        }
     }
   
     @Override

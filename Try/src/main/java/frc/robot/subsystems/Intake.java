@@ -47,8 +47,6 @@ public class Intake extends SubsystemBase{
         pid= new PIDController(kP, kI, kD);
         pid.setTolerance(1);
         secondTalon.follow(firstTalon);
-
-
     }
 
     public void setSetPoint(double setPoint){
